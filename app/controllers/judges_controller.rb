@@ -1,8 +1,9 @@
 class JudgesController < ApplicationController
 
     def create
-        Judge.create(judge_params)
-        redirect_to '/welcome'
+        @judge = Judge.create(judge_params)
+        session[:judge_id] = @judge.id
+        redirect_to judge_path(@judge)
     end
 
     def index
