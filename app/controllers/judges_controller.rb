@@ -1,14 +1,23 @@
 class JudgesController < ApplicationController
 
-    def create(judge_params)
+    def create
         Judge.create(judge_params)
-        self.judge_number = self.id
+        redirect_to '/welcome'
     end
 
     def index
         @judges = Judge.all
     end
-    
+
+    def new
+        @judge = Judge.new
+    end
+
+    def show
+        @judge = Judge.find(params[:id])
+    end
+
+
     private
 
     def judge_params
