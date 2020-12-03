@@ -5,6 +5,10 @@ class JudgesController < ApplicationController
         self.judge_number = self.id
     end
 
+    def index
+        @judges = Judge.all
+    end
+    
     private
 
     def judge_params

@@ -1,0 +1,6 @@
+<h1>Contest Judges:</h1>
+
+<% @judges.each do |j| %>
+    <%= j.judge_number %>. <%= j.last_name %>, <%= j.first_name %>
+    <%= j.organization %> <%= j.judge_number %><br>
+<% end %>
