@@ -1,5 +1,6 @@
 class JudgesController < ApplicationController
 
+skip_before_action :authorized, only: [:new, :create, :index]
     def create
         @judge = Judge.create(judge_params)
         session[:judge_id] = @judge.id

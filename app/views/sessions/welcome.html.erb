@@ -2,8 +2,11 @@
 
 <% if logged_in? %>
     <h1>You are logged in, <%= current_user.first_name %></h1>
-<%end%>
+    <%= button_to "Log Out", '/logout', method: :delete %>
+<% else %>
 
 <%= button_to "Login", '/login', method: :get %>
 
 <%= button_to "Sign Up", '/judges/new', method: :get %>
+
+<%end%>
