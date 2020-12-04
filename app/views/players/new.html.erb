@@ -1,0 +1,23 @@
+<h1>Player Registration</h1>
+
+<%= form_for(@player) do |f| %>
+
+    <%= f.label :first_name %><br>
+
+    <%= f.text_field :first_name %><br>
+
+    <%= f.label :last_name %><br>
+
+    <%= f.text_field :last_name %><br>
+
+    <%= f.label :school %><br>
+
+    <%= f.text_field :school %><br>
+    
+    <%= f.label :email %><br>
+
+    <%= f.text_field :email %><br>
+
+    <%= f.submit %>
+
+    <%end%>
