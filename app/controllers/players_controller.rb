@@ -6,13 +6,19 @@ class PlayersController < ApplicationController
     end
 
     def create
-        @player = Player.create(student_params)
+        @player = Player.create(player_params)
         redirect_to players_path
     end
 
     def index
+        redirect_to '/welcome' unless !logged_in?
         @players = Player.all
     end
-    
+
+    private
+
+    def player_params
+        params.require(:player).permit(:first_name, :last_name, :school, :email)
+    end
 
 end
