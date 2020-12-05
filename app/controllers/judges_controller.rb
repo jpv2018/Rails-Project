@@ -18,6 +18,7 @@ skip_before_action :authorized, only: [:new, :create, :index]
 
     def show
         @judge = Judge.find(params[:id])
+        @players = Player.all
     end
 
     
