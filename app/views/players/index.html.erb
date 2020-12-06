@@ -1,5 +1,6 @@
 <h1>Players</h1>
 
 <% @players.each do |p| %>
-   <%= p.id %> <%= p.first_name %> <%= p.last_name %> <%= p.school %> <%= p.letter %> <% p.scores.each do |s| %> <%= s.amount %>, <%end %><br>
+   <%= p.id %> <%= p.first_name %> <%= p.last_name %> <%= p.school %> <%= p.letter %> <% p.scores.each do |s| %> <%= s.amount %> <%end %><br>
+      Total:
 <%end%>
