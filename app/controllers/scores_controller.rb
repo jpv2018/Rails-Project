@@ -13,8 +13,21 @@ class ScoresController < ApplicationController
         @scores = Score.all
     end
 
+    def edit
+        @score = Score.find(params[:id])
+        @judge = Judge.find_by(params[:judge_id])
+        @player = Player.find(params[:player_id])
+    end
+
     def update
-        @score.update(params.require(:score).permit(:judge_id, :player_id))
+        @judge = current_user
+        @score = Score.find(params[:id])
+        @score.update(params.require(:score).permit(:amount, :judge_id, :player_id))
+        redirect_to judge_players_path(@judge)
+    end
+
+    def show
+        @score = Score.find_by(judge_id: params[:judge_id], player_id: params[:player_id])
     end
 
     private

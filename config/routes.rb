@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :scores 
 
   resources :judges do
-    resources :players, only: [:index], controller: 'judge_players'
+    resources :players, only: [:index], controller: 'judge_players' do
+      resources :scores, only: [:edit, :show, :delete]
+    end
   end
 
   resources :players
