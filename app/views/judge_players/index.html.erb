@@ -1,0 +1,9 @@
+<h1>Players</h1>
+
+<% @players.each do |p| %>
+   Player <%= p.id %> <%= form_for(@score) do |f| %>
+    <%= f.number_field :amount %>
+    <%= f.submit "Submit" %>
+   <%end%>
+   <%= self.score.amount %>
+<%end%>

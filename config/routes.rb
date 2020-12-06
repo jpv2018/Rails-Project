@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :scores
   resources :judges do
-    resources :players, only: [:index]
+    resources :players, only: [:index], controller: 'judge_players'
   end
-  
+
   resources :players
 
   get 'login', to: 'sessions#new'
