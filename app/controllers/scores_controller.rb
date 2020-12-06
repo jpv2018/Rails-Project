@@ -13,6 +13,10 @@ class ScoresController < ApplicationController
         @scores = Score.all
     end
 
+    def update
+        @score.update(params.require(:score).permit(:judge_id, :player_id))
+    end
+
     private
 
     def score_params

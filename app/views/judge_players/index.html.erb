@@ -3,12 +3,25 @@
 <% @players.each do |p| %>
 
    Player <%= p.id %> <% p.scores.select { |s| s.judge_id == @judge.id }.each do |l| %> <%= l.amount %> <%end%>
+
+   <% if p.scores.select {|s| s.judge_id == @judge.id } == nil %>
+
    <%= form_for :score, :url => scores_path do |f| %>
       <%= f.hidden_field :judge_id, value: @judge.id %>
       <%= f.hidden_field :player_id, value: @player.id %>
       <%= f.label :amount %>
       <%= f.text_field :amount %>
       <%= f.submit %>
-  
       <%end%>
+
+   <% else %>
+
+    <%= form_for :score, :url => scores_path, method: :patch do |f| %>
+      <%= f.hidden_field :judge_id, value: @judge.id %>
+      <%= f.hidden_field :player_id, value: @player.id %>
+      <%= f.label :amount %>
+      <%= f.text_field :amount %>
+      <%= f.submit "Update" %>
+      <%end%>
+<%end%>
 <%end%>
