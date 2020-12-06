@@ -1,5 +1,9 @@
 <h1>Scores</h1>
 
 <%= @scores.each do |p| %>
+   
+   <%= f.label :amount %>
+   <%= f.text_field :amount %>
+   <%= f.submit %>
    <%= p.id %> <%= p.amount %> <%= p.judge_id %> <%= p.player_id %><br>
 <%end%>

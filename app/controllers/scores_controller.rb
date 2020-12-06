@@ -1,6 +1,7 @@
 class ScoresController < ApplicationController
     def create
-        Score.create(amount: params[:amount], judge_id: params[:judge_id], player_id: params[:player_id])
+        @score = Score.create(score_params)
+        @score.save
         redirect_to '/judges/:judge_id/players'
     end
 
@@ -11,4 +12,11 @@ class ScoresController < ApplicationController
     def index
         @scores = Score.all
     end
+
+    private
+
+    def score_params
+        params.require(:score).permit(:amount, :judge_id, :player_id)
+    end
+
 end

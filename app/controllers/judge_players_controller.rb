@@ -4,7 +4,7 @@ class JudgePlayersController < ApplicationController
         @players = Player.all
         @player = Player.find_by(params[:player_id])
         @score = Score.new
-        @player_score = Score.find_by(judge_id: params[:judge_id], player_id: params[:player_id])
+        @judge = current_user
     end
 
     def new

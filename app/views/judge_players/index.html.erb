@@ -1,7 +1,15 @@
 <h1>Players</h1>
 
 <% @players.each do |p| %>
+
    Player <%= p.id %>
-   <%= button_to "Enter Score", '/scores/new', method: :get %>
-   <%= p.scores %>
+   <%= form_for :score, :url => scores_path do |f| %>
+      <%= f.hidden_field :judge_id, value: @judge.id %>
+      <%= f.hidden_field :player_id, value: @player.id %>
+      <%= f.label :amount %>
+      <%= f.text_field :amount %>
+      <%= f.submit %>
+  
+      <%end%>
+   <%= button_to "Enter Score", 'scores/new', method: :get %><br>
 <%end%>
