@@ -2,7 +2,7 @@
 
 <% @players.each do |p| %>
 
-   Player <%= p.id %>
+   Player <%= p.id %> <% p.scores.select { |s| s.judge_id == @judge.id }.each do |l| %> <%= l.amount %> <%end%>
    <%= form_for :score, :url => scores_path do |f| %>
       <%= f.hidden_field :judge_id, value: @judge.id %>
       <%= f.hidden_field :player_id, value: @player.id %>
@@ -11,5 +11,4 @@
       <%= f.submit %>
   
       <%end%>
-   <%= button_to "Enter Score", 'scores/new', method: :get %><br>
 <%end%>

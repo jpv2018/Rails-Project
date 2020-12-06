@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   resources :judges do
     resources :players, only: [:index], controller: 'judge_players'
-    resources :scores, only: [:new]
   end
 
   resources :players
