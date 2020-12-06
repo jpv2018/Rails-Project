@@ -1,0 +1,13 @@
+<h1>Score Entry</h1>
+
+<%= form_for(@score) do |f| %>
+
+    <%= f.label :judge_id %>
+    <%= f.text_field :judge_id %>
+    <%= f.label :player_id %>
+    <%= f.text_field :player_id %>
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+    <%= f.submit %>
+
+    <%end%>
