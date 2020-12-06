@@ -4,3 +4,7 @@
    <%= p.id %> <%= p.first_name %> <%= p.last_name %> <%= p.school %> <%= p.letter %> <% p.scores.each do |s| %> <%= s.amount %> <%end %><br>
       Total: <%= p.total_score.inject(0,:+) %><br><br>
 <%end%>
+
+<%= button_to "Add Player", '/players/new', method: :get %>
+
+<%= button_to "Home", '/welcome', method: :get %>
