@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
     skip_before_action :authorized
 
+
     def new
         @player = Player.new
     end

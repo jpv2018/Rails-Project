@@ -1,1 +1,7 @@
-<h1><%= @judge.first_name %></h1><br>
+<h1><%= @judge.first_name %> <%= @judge.last_name %></h1><br>
+<h2><%= @judge.organization %><br> Judge ID: <%= @judge.id %></h2><br><br>
+
+<%= button_to "Begin Judging", judge_players_path(@judge), method: :get %>
+<br><br>
+
+<%= button_to "Home", '/welcome', method: :get %>

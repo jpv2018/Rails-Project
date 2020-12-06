@@ -2,7 +2,9 @@
 
 <% if logged_in? %>
     <h1>You are logged in, <%= current_user.first_name %></h1>
+    <%= button_to "Profile", judge_path(current_user), method: :get %><br><br>
     <%= button_to "Log Out", '/logout', method: :delete %>
+    
 <% else %>
 
 <%= button_to "Login", '/login', method: :get %>
@@ -10,5 +12,5 @@
 <%= button_to "Sign Up", '/judges/new', method: :get %>
 
 <%= button_to "Player Registration", '/players/new', method: :get %>
-
+<%= button_to "View Players", players_path, method: :get %>
 <%end%>

@@ -12,5 +12,7 @@
       <%= f.text_field :amount %>
       <%= f.submit %>
       <%end%>
-
 <%end%>
+<br><br><br>
+<%= button_to "Profile", judge_path(@judge), method: :get %>
+<%= button_to "Home", '/welcome', method: :get %>

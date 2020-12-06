@@ -2,5 +2,5 @@
 
 <% @players.each do |p| %>
    <%= p.id %> <%= p.first_name %> <%= p.last_name %> <%= p.school %> <%= p.letter %> <% p.scores.each do |s| %> <%= s.amount %> <%end %><br>
-      Total:
+      Total: <%= p.total_score.inject(0,:+) %><br><br>
 <%end%>
