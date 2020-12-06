@@ -7,7 +7,6 @@ class PlayersController < ApplicationController
 
     def create
         @player = Player.create(player_params)
-        @player.score = 0
         redirect_to players_path
     end
 

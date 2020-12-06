@@ -34,11 +34,13 @@ ActiveRecord::Schema.define(version: 2020_12_03_023733) do
   end
 
   create_table "scores", force: :cascade do |t|
-    t.string "player_id"
-    t.string "judge_id"
-    t.integer "amount", default: 0
+    t.integer "player_id"
+    t.integer "judge_id"
+    t.integer "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["judge_id"], name: "index_scores_on_judge_id"
+    t.index ["player_id"], name: "index_scores_on_player_id"
   end
 
 end
