@@ -12,7 +12,7 @@ skip_before_action :authorized, only: [:new, :create, :welcome]
             session[:judge_id] = @judge.id
             redirect_to judge_path(@judge)
         else
-            redirect_to '/login'
+            redirect_to login_path, danger: "Invalid email or password"
         end
 
     end

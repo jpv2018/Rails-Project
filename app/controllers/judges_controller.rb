@@ -5,7 +5,12 @@ skip_before_action :authorized, only: [:new, :create, :index]
     def create
         @judge = Judge.create(judge_params)
         session[:judge_id] = @judge.id
-        redirect_to judge_path(@judge)
+        if @judge.valid? 
+            redirect_to judge_path(@judge)
+        else
+            redirect_to new_judge_path
+        end
+
     end
 
     def index

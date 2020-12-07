@@ -8,7 +8,11 @@ class PlayersController < ApplicationController
 
     def create
         @player = Player.create(player_params)
+        if @player.valid?
         redirect_to players_path
+        else
+            redirect_to '/players/new'
+        end
     end
 
     def index

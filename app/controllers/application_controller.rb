@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
     before_action :authorized
     helper_method :current_user
     helper_method :logged_in?
-     
+    add_flash_types :danger, :info, :warning, :success
     def current_user
         Judge.find_by(id: session[:judge_id])
     end
