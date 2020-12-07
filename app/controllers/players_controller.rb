@@ -15,6 +15,10 @@ class PlayersController < ApplicationController
         end
     end
 
+    def results
+        @players = Player.all
+    end
+    
     def index
         redirect_to '/welcome' unless !logged_in?
         @players = Player.all

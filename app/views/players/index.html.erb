@@ -1,8 +1,11 @@
 <h1>Players</h1>
 
 <% @players.each do |p| %>
-   <%= p.id %> <%= p.first_name %> <%= p.last_name %> <%= p.school %> <%= p.letter %> <% p.scores.each do |s| %> <%= s.amount %> <%end %><br>
-      Total: <%= p.total_score.inject(0,:+) %><br><br>
+   <% p.total = p.total_score.inject(0,:+) %>
+   <%end%>
+
+<% @players.each do |p| %>
+   <%= p.id %> <%= p.first_name %> <%= p.last_name %> <%= p.school %><br>
 <%end%>
 
 <%= button_to "Add Player", '/players/new', method: :get %>

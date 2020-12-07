@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :players
 
-
+  get 'results', to: 'players#results'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'welcome', to: 'sessions#welcome'
