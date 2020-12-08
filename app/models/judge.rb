@@ -4,7 +4,7 @@ class Judge < ApplicationRecord
     #validates :organization, presence: true
     #validates :email, presence: true, uniqueness: true
     #validates :password, presence: true
-    #has_secure_password
+    has_secure_password
     has_many :scores
     has_many :players, through: :scores
 end
