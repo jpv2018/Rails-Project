@@ -4,7 +4,7 @@ Email: <%= @judge.email %><br>
 Organization: <%= @judge.organization %><br><br>
 <%= button_to "Edit Information", edit_judge_path(@judge), method: :get %>
 <%= button_to "Begin Judging", judge_players_path(@judge), method: :get %>
-<br><br>
+<%= button_to "View Judges", judges_path, method: :get %>
 
 <%= button_to "Home", '/welcome', method: :get %>
 <%= button_to "Log Out", '/logout', method: :delete %>
