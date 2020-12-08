@@ -13,7 +13,7 @@ skip_before_action :authorized, only: [:new, :create, :index]
         if @judge.valid? 
             redirect_to judge_path(@judge)
         else
-            redirect_to new_judge_path, notice: "Email already exists"
+            render :new
         end
 
     end

@@ -12,7 +12,7 @@
    <td>School</td>
    <td>Score Total</td>
    </tr>
-<% @players.total_exists.each do |p| %>
+<% @players.each do |p| %>
    <tr>
       <td><%= p.id %></td>
       <td><%= p.first_name %></td>
