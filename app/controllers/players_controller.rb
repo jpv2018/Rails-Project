@@ -21,11 +21,10 @@ class PlayersController < ApplicationController
     
     def index
         redirect_to '/welcome' unless !logged_in?
-        @players = Player.all
         if params[:search]
-            @player = Player.search_school(params[:search])
+            @players = Player.all.school_search(params[:search])
         else
-            @player = Player.all
+            @players = Player.all
         end
     end
 
@@ -33,7 +32,7 @@ class PlayersController < ApplicationController
     private
 
     def player_params
-        params.require(:player).permit(:first_name, :last_name, :school, :email)
+        params.require(:player).permit(:first_name, :last_name, :school, :email, :search)
     end
 
 end

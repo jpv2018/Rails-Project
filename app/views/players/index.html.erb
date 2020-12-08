@@ -3,7 +3,11 @@
 <% @players.each do |p| %>
    <% p.total = p.total_score.inject(0,:+) %>
    <%end%>
-
+<%= form_tag players_path, :method => "get" do %>
+   <%= label_tag(:search, "Enter a School Name:") %>
+   <%= text_field_tag :search, params[:search] %>
+   <%= submit_tag("Search", :name => nil)%>
+   <% end %>
 <table border="1">
 <tr>
    <td>Player Number</td>

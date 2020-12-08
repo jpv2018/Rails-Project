@@ -6,7 +6,7 @@ class Player < ApplicationRecord
     has_many :scores
     has_many :judges, through: :scores
 
-    scope :search_school, -> (school) {where(school: school)}
+    scope :school_search, ->(school) { where("school == ? ", school) }
 
     def total_score
         array = scores.map{|s| s.amount}
