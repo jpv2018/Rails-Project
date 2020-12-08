@@ -2,7 +2,11 @@ class ScoresController < ApplicationController
     def create
         @score = Score.create(score_params)
         @score.save
-        redirect_to '/judges/:judge_id/players'
+        if @score.valid? 
+            redirect_to '/judges/:judge_id/players'
+        else
+            redirect_to judge_players_url(current_user.id), notice: "Score already exists"
+        end
     end
 
     def new

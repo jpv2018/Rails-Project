@@ -4,23 +4,19 @@
    <% p.total = p.total_score.inject(0,:+) %>
    <%end%>
 
-<% @players.each do |p| %>
-   <%= p.id %> <%= p.first_name %> <%= p.last_name %> <%= p.school %><br>
-<%end%>
-
 <table border="1">
 <tr>
+   <td>Player Number</td>
    <td>First Name</td>
    <td>Last Name</td>
    <td>School</td>
-   <td>Score Total</td>
    </tr>
 <% @players.each do |p| %>
    <tr>
+      <td><%= p.id %></td>
       <td><%= p.first_name %></td>
       <td><%= p.last_name %></td>
       <td><%= p.school %></td>
-      <td><%= p.total %></td>
       </tr>
       <% end %>
    </table>

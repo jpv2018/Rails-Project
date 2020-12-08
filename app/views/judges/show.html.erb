@@ -1,6 +1,8 @@
 <h1><%= @judge.first_name %> <%= @judge.last_name %></h1><br>
 <h2><%= @judge.organization %><br> Judge ID: <%= @judge.id %></h2><br><br>
-
+Email: <%= @judge.email %><br>
+Organization: <%= @judge.organization %><br><br>
+<%= button_to "Edit Information", edit_judge_path(@judge), method: :get %>
 <%= button_to "Begin Judging", judge_players_path(@judge), method: :get %>
 <br><br>
 

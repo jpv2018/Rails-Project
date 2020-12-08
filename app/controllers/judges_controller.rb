@@ -31,7 +31,18 @@ skip_before_action :authorized, only: [:new, :create, :index]
         @players = Player.all
     end
 
-    
+    def edit
+        @judge = Judge.find(params[:id])
+    end
+
+    def update
+        @judge = current_user
+        @judge.update(params.require(:judge).permit(:organization, :first_name, :last_name, :email, :password))
+        redirect_to judge_path(@judge)
+    end
+
+
+
 
     private
 

@@ -1,0 +1,24 @@
+Edit Information
+
+<%= form_for(@judge) do |f| %>
+
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+    <br>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+    <br>
+    <%= f.label :organization %>
+    <%= f.text_field :organization %>
+    <br>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <br>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <br>
+    <%= f.submit %>
+
+    <%= button_to "Profile", judge_path(current_user), method: :get %><br><br>
+    
+    <%end%>
