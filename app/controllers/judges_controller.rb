@@ -6,7 +6,7 @@ skip_before_action :authorized, only: [:new, :create, :index]
         @judge = Judge.create(judge_params)
         session[:judge_id] = @judge.id
 
-        if judge_is_from_omniauth?
+        if @judge.uid != nil
             @judge.password = SecureRandom.hex(9)
         end
 

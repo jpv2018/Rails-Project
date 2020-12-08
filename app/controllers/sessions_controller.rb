@@ -12,19 +12,21 @@ skip_before_action :authorized, only: [:new, :create, :welcome]
             j.first_name = auth['info']['first_name']
             j.last_name = auth['info']['last_name']
             j.email = auth['info']['email']
-            session[:judge_id] = @judge.id
-        end
-
+            j.password = SecureRandom.hex(9)
+            end
+        session[:judge_id] = @judge.id
+        redirect_to judge_path(@judge)
         else
-            judge = Judge.find_by(:email => params[:email])
-            if judge &&judge.authenticate(params[:password])
-                session[:judge_id] = judge.id
+            @judge = Judge.find_by(email: params[:email])
+            if @judge && @judge.authenticate(params[:password])
+                session[:judge_id] = @judge.id
+                redirect_to judge_path(@judge)
+            else
+                redirect_to '/welcome'
             end
         end
-
-
-        render 'welcome'
     end
+
 
     def destroy
         session.delete(:judge_id)
