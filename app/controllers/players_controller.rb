@@ -22,6 +22,11 @@ class PlayersController < ApplicationController
     def index
         redirect_to '/welcome' unless !logged_in?
         @players = Player.all
+        if params[:search]
+            @player = Player.search_school(params[:search])
+        else
+            @player = Player.all
+        end
     end
 
 

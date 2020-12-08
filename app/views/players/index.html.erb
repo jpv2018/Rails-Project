@@ -1,5 +1,10 @@
 <h1>Players</h1>
 
+<%= form_tag(players_path method: :get) do %>
+   School <%= text_field_tag :search, params[:search] %>
+   <%= submit_tag 'Search' %>
+<%end%>
+
 <% @players.each do |p| %>
    <% p.total = p.total_score.inject(0,:+) %>
    <%end%>
