@@ -8,7 +8,7 @@
 <% else %>
 
 <%= button_to "Login", '/login', method: :get %>
-
+<%= link_to('Log in with Facebook!', '/auth/facebook') %>
 <%= button_to "Sign Up", '/judges/new', method: :get %>
 
 <%= button_to "Player Registration", '/players/new', method: :get %>
