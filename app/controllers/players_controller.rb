@@ -11,7 +11,7 @@ class PlayersController < ApplicationController
         if @player.valid?
         redirect_to players_path
         else
-            redirect_to new_player_path, notice: "Player Already Exists"
+            render :new
         end
     end
 

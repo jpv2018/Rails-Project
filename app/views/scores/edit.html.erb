@@ -1,5 +1,10 @@
 <h1>Edit Score</h1>
 
+<% if @score.errors.any? %>
+<% @score.errors.full_messages.each do |mess| %>
+    <li style="color: red"><%= mess %></li>
+    <% end %>
+    <% end %>
 <%= form_for(@score) do |f| %>
 
     <%= f.hidden_field :judge_id, value: current_user.id %>

@@ -7,7 +7,7 @@
     <% end %>
 
 <%= form_for(@judge) do |f| %>
-
+    <div class="field">
     <%= f.label :first_name %><br>
 
     <%= f.text_field :first_name %><br>
@@ -29,6 +29,6 @@
     <%= f.password_field :password %><br>
 
     <%= f.submit %>
-
+    </div>
     <%end%>
     <%= button_to "Home", '/welcome', method: :get %>

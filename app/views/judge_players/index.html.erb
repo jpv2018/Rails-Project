@@ -1,5 +1,9 @@
 <h1>Players</h1>
-
+<% if @score.errors.any? %>
+<% @score.errors.full_messages.each do |mess| %>
+    <li style="color: red"><%= mess %></li>
+    <% end %>
+    <% end %>
 <% @players.each do |p| %>
 
    Player <%= p.id %> <br><% p.scores.select { |s| s.judge_id == @judge.id && s.player_id == p.id }.each do |l| %> <%= l.amount %> <%= button_to "Edit", edit_judge_player_score_path(@judge.id, p.id, l.id), :method => :get %> <%end%>

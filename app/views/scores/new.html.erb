@@ -1,11 +1,14 @@
 <h1>Score Entry</h1>
+<%= form_tag '/login' do %>
 
-<%= form_for(@score) do |f| %>
+    <%= label_tag :email %>
 
-    <%= f.label :player_id %>
-    <%= f.text_field :player_id %>
-    <%= f.label :amount %>
-    <%= f.text_field :amount %>
-    <%= f.submit %>
+    <%= text_field_tag :email %>
 
-    <%end%>
+    <%= label_tag :password %>
+
+    <%= password_field_tag :password %>
+
+    <%= submit_tag "Login" %>
+
+<%end%>

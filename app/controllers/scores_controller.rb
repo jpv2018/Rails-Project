@@ -5,7 +5,9 @@ class ScoresController < ApplicationController
         if @score.valid? 
             redirect_to '/judges/:judge_id/players'
         else
-            redirect_to judge_players_url(current_user.id), notice: "Score already exists"
+            @judge = current_user
+            @players = Player.all
+            render '/judge_players/index'
         end
     end
 
@@ -26,8 +28,12 @@ class ScoresController < ApplicationController
     def update
         @judge = current_user
         @score = Score.find(params[:id])
-        @score.update(params.require(:score).permit(:amount, :judge_id, :player_id))
-        redirect_to judge_players_path(@judge)
+        if @score.update(params.require(:score).permit(:amount, :judge_id, :player_id))
+            redirect_to judge_players_path(@judge)
+        else 
+            @player = Player.find(params[:id])
+            render :edit
+        end
     end
 
     def show

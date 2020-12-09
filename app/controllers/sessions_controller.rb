@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 skip_before_action :authorized, only: [:new, :create, :welcome]
 
     def new
-
+        @judge = Judge.new
     end
 
     def create  
@@ -22,7 +22,8 @@ skip_before_action :authorized, only: [:new, :create, :welcome]
                 session[:judge_id] = @judge.id
                 redirect_to judge_path(@judge)
             else
-                redirect_to '/welcome'
+                @judge = Judge.new
+                render '/sessions/new'
             end
         end
     end
