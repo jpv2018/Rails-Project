@@ -1,4 +1,5 @@
 <h1>Players</h1>
+<% if @score %>
 <% if @score.errors.any? %>
 <% @score.errors.full_messages.each do |mess| %>
     <li style="color: red"><%= mess %></li>
@@ -20,3 +21,22 @@
 <br><br><br>
 <%= button_to "Profile", judge_path(@judge), method: :get %>
 <%= button_to "Home", '/welcome', method: :get %>
+
+<% else %>
+<% @players.each do |p| %>
+
+    Player <%= p.id %> <br><% p.scores.select { |s| s.judge_id == @judge.id && s.player_id == p.id }.each do |l| %> <%= l.amount %> <%= button_to "Edit", edit_judge_player_score_path(@judge.id, p.id, l.id), :method => :get %> <%end%>
+    
+ 
+    <%= form_for :score, :url => scores_path do |f| %>
+       <%= f.hidden_field :judge_id, value: @judge.id %>
+       <%= f.hidden_field :player_id, value: p.id %>
+       <%= f.label :amount %>
+       <%= f.text_field :amount %>
+       <%= f.submit %>
+       <%end%>
+ <%end%>
+ <br><br><br>
+ <%= button_to "Profile", judge_path(@judge), method: :get %>
+ <%= button_to "Home", '/welcome', method: :get %>
+ <%end%>
